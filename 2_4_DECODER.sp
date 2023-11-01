@@ -1,3 +1,6 @@
+.include NOT.sub    
+.include AND.sub
+
 .subckt 2_4_DECODER A0 A1 D0 D1 D2 D3 vdd gnd
 
 NOT1 A0 A0_inverted vdd gnd NOT

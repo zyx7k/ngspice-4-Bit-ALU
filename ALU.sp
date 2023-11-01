@@ -23,8 +23,21 @@
 
 Vdd vdd gnd 'SUPPLY'
 
-V_in_s0 S0 gnd DC 1.8
+* Input mode for Selecting AND Block
+* V_in_s0 S0 gnd DC 1.8
+* V_in_s1 S1 gnd DC 1.8
+
+* Input mode for Selecting COMPARATOR Block
+V_in_s0 S0 gnd DC 0
 V_in_s1 S1 gnd DC 1.8
+
+* Input mode for Selecting SUBTRACATION Block
+* V_in_s0 S0 gnd DC 1.8
+* V_in_s1 S1 gnd DC 0
+
+* Input mode for Selecting ADDITION Block
+* V_in_s0 S0 gnd DC 0
+* V_in_s1 S1 gnd DC 0
 
 V_in_a0 A0 gnd PULSE(0 1.8 0ns 100ps 100ps 20ns 40ns)
 V_in_a1 A1 gnd PULSE(0 1.8 0ns 100ps 100ps 50ns 70ns)
@@ -65,6 +78,14 @@ X8 A0_AND A1_AND A2_AND A3_AND B0_AND B1_AND B2_AND B3_AND AB_0 AB_1 AB_2 AB_3 v
     run
     set color0 = rgb:f/f/e
     set color1 = black
-    plot v(A0) v(B0)+2 v(AB_0)+4 v(A1)+6 v(B1)+8 V(AB_1)+10 V(A2)+12 V(B2)+14 V(AB_2)+16 V(A3)+18 V(B3)+20 V(AB_3)+22      
+    * Below is plot of the AND BLOCK ----->
+    * plot v(A0) v(B0)+2 v(AB_0)+4 v(A1)+6 v(B1)+8 V(AB_1)+10 V(A2)+12 V(B2)+14 V(AB_2)+16 V(A3)+18 V(B3)+20 V(AB_3)+22  
+
+    * Below is the plot of the COMPARATOR BLOCK (numbers is A3A2A1A0 and B3B2B1B0) ----->
+    plot v(A0) v(B0)+2 v(A1)+4 v(B1)+6 v(A2)+8 V(B2)+10 V(A3)+12 V(B3)+14 V(A_eq_B)+16 V(A_st_B)+18 V(A_gt_B)+20  
+
+    * Below is the plot of the ADDITION-SUBTRACTION BLOCK (numbers is A3A2A1A0 and B3B2B1B0) ----->
+    *plot v(A0) v(B0)+2 v(A1)+4 v(B1)+6 v(A2)+8 V(B2)+10 V(A3)+12 V(B3)+14 V(S0_AS)+16 V(S1_AS)+18 V(S2_AS)+20 V(S3_AS)+22 V(carry_AS)+24  
+
     .end
 .endc

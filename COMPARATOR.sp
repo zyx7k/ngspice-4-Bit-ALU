@@ -1,3 +1,11 @@
+.include NOT.sub
+.include XNOR.sub
+.include AND.sub
+.include 3_AND.sub
+.include 4_AND.sub
+.include 5_AND.sub
+.include 4_OR.sub
+
 .subckt COMPARATOR A0 A1 A2 A3 B0 B1 B2 B3 A_gt_B A_eq_B A_st_B vdd gnd
 
 *A_gt_B : means A greater than B

@@ -1,3 +1,5 @@
+.include AND.sub
+
 .subckt AND_BLOCK A0 A1 A2 A3 B0 B1 B2 B3 AB_0 AB_1 AB_2 AB_3 vdd gnd
 
 X1 A0 B0 AB_0 vdd gnd AND

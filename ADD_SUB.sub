@@ -1,0 +1,18 @@
+.include XOR.sub
+.include FA.sub
+
+.subckt ADD_SUB M A0 A1 A2 A3 B0 B1 B2 B3 S0 S1 S2 S3 carry vdd gnd
+
+X1 M B0 I0 vdd gnd XOR
+X2 A0 I0 M S0 C1 vdd gnd FA
+
+X3 M B1 I1 vdd gnd XOR
+X4 A1 I1 C1 S1 C2 vdd gnd FA
+
+X5 M B2 I2 vdd gnd XOR
+X6 A2 I2 C2 S2 C3 vdd gnd FA
+
+X7 M B3 I3 vdd gnd XOR
+X8 A3 I3 C3 S3 carry vdd gnd FA
+     
+.ends ADD_SUB

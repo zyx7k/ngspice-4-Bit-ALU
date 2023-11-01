@@ -1,0 +1,17 @@
+.include NOT.sub
+.include 4_OR.sub
+.include 3_AND.sub
+
+.subckt 4_1_MUX S0 S1 I0 I1 I2 I3 output vdd gnd
+
+X1 S0 S0_inverted vdd gnd NOT
+X2 S1 S1_inverted vdd gnd NOT
+X3 S0 S1 I3 node3 vdd gnd 3_AND
+X4 S0_inverted S1 I2 node2 vdd gnd 3_AND
+X5 S0 S1_inverted I1 node1 vdd gnd 3_AND
+X6 S0_inverted S1_inverted I0 node0 vdd gnd 3_AND
+X7 node0 node1 node2 node3 output vdd gnd 4_OR
+
+.ends 4_1_MUX
+
+        

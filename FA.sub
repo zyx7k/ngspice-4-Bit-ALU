@@ -1,0 +1,15 @@
+.include XOR.sub
+.include AND.sub
+.include OR.sub
+
+.subckt FA nodeA nodeB carry_in sum carry_out vdd gnd
+
+*Full Adder
+
+X1 nodeA nodeB node1 vdd gnd XOR
+X2 nodeA nodeB node2 vdd gnd AND
+X3 carry_in node1 sum vdd gnd XOR
+X4 carry_in node1 node3 vdd gnd AND
+X5 node2 node3 carry_out vdd gnd OR
+
+.ends FA

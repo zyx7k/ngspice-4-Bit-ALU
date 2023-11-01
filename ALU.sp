@@ -1,10 +1,10 @@
 .include TSMC_180nm.txt
 .include FA.sub
-.include ENABLE.sp
-.include 2_4_DECODER.sp
-.include COMPARATOR.sp
-.include AND_BLOCK.sp
-.include ADD_SUB.sp
+.include ENABLE.sub
+.include 2_4_DECODER.sub
+.include COMPARATOR.sub
+.include AND_BLOCK.sub
+.include ADD_SUB.sub
 
 .param SUPPLY = 1.8
 .param LAMBDA = 0.18u
@@ -23,8 +23,8 @@
 
 Vdd vdd gnd 'SUPPLY'
 
-V_in_s0 S0 gnd DC vdd
-V_in_s1 S1 gnd DC vdd
+V_in_s0 S0 gnd DC 1.8
+V_in_s1 S1 gnd DC 1.8
 
 V_in_a0 A0 gnd PULSE(0 1.8 0ns 100ps 100ps 20ns 40ns)
 V_in_a1 A1 gnd PULSE(0 1.8 0ns 100ps 100ps 50ns 70ns)
@@ -56,7 +56,7 @@ X6 A0_C A1_C A2_C A3_C B0_C B1_C B2_C B3_C A_gt_B A_eq_B A_st_B vdd gnd COMPARAT
 * AND Block Section --->
 X7 D3 A0 A1 A2 A3 B0 B1 B2 B3 A0_AND A1_AND A2_AND A3_AND B0_AND B1_AND B2_AND B3_AND vdd gnd ENABLE
 * _AND indicates that the node belongs to the AND block of the ALU.
-X8 AND_BLOCK A0_AND A1_AND A2_AND A3_AND B0_AND B1_AND B2_AND B3_AND AB_0 AB_1 AB_2 AB_3 vdd gnd AND_BLOCK
+X8 A0_AND A1_AND A2_AND A3_AND B0_AND B1_AND B2_AND B3_AND AB_0 AB_1 AB_2 AB_3 vdd gnd AND_BLOCK
 * AB_0, AB_1, AB_2 & AB_3 are the ouputs.
 
 .tran 1n 800n
@@ -65,6 +65,6 @@ X8 AND_BLOCK A0_AND A1_AND A2_AND A3_AND B0_AND B1_AND B2_AND B3_AND AB_0 AB_1 A
     run
     set color0 = rgb:f/f/e
     set color1 = black
-    print v(A0) v(B0)+2 v(AB_0)+4 v(A1)+6 v(B1)+8 V(AB_1)+10 V(A2)+12 V(B2)+14 V(AB_2)+16 V(A3)+18 V(B3)+20 V(AB_3)+22      
+    plot v(A0) v(B0)+2 v(AB_0)+4 v(A1)+6 v(B1)+8 V(AB_1)+10 V(A2)+12 V(B2)+14 V(AB_2)+16 V(A3)+18 V(B3)+20 V(AB_3)+22      
     .end
 .endc

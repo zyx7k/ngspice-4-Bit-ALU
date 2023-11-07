@@ -1,0 +1,5 @@
+Questionable use of curly braces in "set color1 = {white}"
+    Error: undefined symbol in: "[white]"
+Circuit: .include TSMC_180nm.txt
+
+Fatal Error: Multiple instances of "Plot"

@@ -23,8 +23,8 @@ To run the project on your computer, you must have ngspice installed on your mac
 
 Clone the repo to your local machine and go to the directory.<br>
 
-
 Say you want to test the addition operation, then edit the **alu.sp** file and uncomment the appropriate lines both at the select lines section and in the plots section of the code.<br>
+
 Once done, run the following command in your terminal:
 ```
 ngspice alu.sp
